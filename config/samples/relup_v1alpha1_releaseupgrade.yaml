@@ -1,0 +1,7 @@
+apiVersion: relup.lrascao.github.io/v1alpha1
+kind: ReleaseUpgrade
+metadata:
+  name: releaseupgrade-sample
+spec:
+  # Add fields here
+  foo: bar
