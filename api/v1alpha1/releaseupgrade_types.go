@@ -28,8 +28,25 @@ type ReleaseUpgradeSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of ReleaseUpgrade. Edit ReleaseUpgrade_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	ImageSpec      ReleaseUpgradeImageSpec      `json:"relup,omitempty"`
+	VolumeSpec     ReleaseUpgradeVolumeSpec     `json:"volume,omitempty"`
+	DeploymentSpec ReleaseUpgradeDeploymentSpec `json:"deployment,omitempty"`
+}
+
+type ReleaseUpgradeImageSpec struct {
+	Name          string `json:"name,omitempty"`
+	Image         string `json:"image,omitempty"`
+	Tarball       string `json:"tarball,omitempty"`
+	SourceVersion string `json:"sourceVersion,omitempty"`
+	TargetVersion string `json:"targetVersion,omitempty"`
+}
+
+type ReleaseUpgradeDeploymentSpec struct {
+	Name string `json:"name,omitempty"`
+}
+
+type ReleaseUpgradeVolumeSpec struct {
+	HostPath string `json:"hostPath,omitempty"`
 }
 
 // ReleaseUpgradeStatus defines the observed state of ReleaseUpgrade
